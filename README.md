@@ -7,7 +7,7 @@ ItemBalancer é uma biblioteca flexível que permite distribuir itens entre cate
 
 ## Instalação
 
-Use o gerenciador de pacotes [Composer](https://getcomposer.org/) para instalar a DistroCat.
+Use o gerenciador de pacotes [Composer](https://getcomposer.org/) para instalar a ItemBalancer.
 
 ```bash
 composer require ananiaslitz/item-balancer
