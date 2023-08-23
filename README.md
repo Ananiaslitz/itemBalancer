@@ -19,12 +19,12 @@ composer require ananiaslitz/item-balancer
 require 'vendor/autoload.php';
 
 use Ananiaslitz\ItemBalancer\RedisCache;
-use Ananiaslitz\ItemBalancer\CategoryDistributor;
+use Ananiaslitz\ItemBalancer\Distributor;
 
 $categories = ['A', 'B'];
 $percentages = [70, 30];
 $cache = new RedisCache();
-$distributor = new CategoryDistributor($cache, $categories, $percentages);
+$distributor = new Distributor($cache, $categories, $percentages);
 
 $result = $distributor->distribute('ItemX');
 print_r($result);
