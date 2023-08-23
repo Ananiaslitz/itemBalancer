@@ -1,0 +1,17 @@
+{
+    "name": "ananiaslitz/item-balancer",
+    "description": "ItemBalancer is a flexible library for distributing items across predefined categories based on specified proportions. Using a cache-backed mechanism, it ensures efficient real-time calculations for balanced item assignments.",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Ananiaslitz\\ItemBalancer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Diego Ananias",
+            "email": "diegohsananias@gmail.com"
+        }
+    ],
+    "require": {}
+}
