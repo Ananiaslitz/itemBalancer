@@ -2,11 +2,13 @@
 
 namespace Ananiaslitz\ItemBalancer\Cache;
 
+use Ananiaslitz\ItemBalancer\Contracts\CacheInterface;
+
 class RedisCache implements CacheInterface {
     private $client;
 
     public function __construct() {
-        $this->client = new Predis\Client();
+        $this->client = new Client();
     }
 
     public function get(string $key): int {
