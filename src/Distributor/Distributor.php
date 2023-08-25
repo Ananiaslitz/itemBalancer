@@ -19,23 +19,38 @@ class Distributor
 
     public function distribute(string $item): array
     {
-        $category = $this->getCategoryForDistribution();
+        $category = $this->getRandomCategoryBasedOnProportions();
         $this->cache->increment($category);
 
         return ['item' => $item, 'category' => $category];
     }
 
-    private function getCategoryForDistribution(): string
+    private function getRandomCategoryBasedOnProportions(): string
     {
+        $weights = [];
+
         $totalItems = array_sum(array_map(fn($cat) => $this->cache->get($cat), $this->categories));
 
         foreach ($this->categories as $index => $category) {
             $desiredCount = $totalItems * ($this->percentages[$index] / 100);
-            if ($this->cache->get($category) < $desiredCount) {
-                return $category;
-            }
+            $weights[$category] = $desiredCount - $this->cache->get($category);
         }
 
-        return $this->categories[0];
+        return $this->getRandomCategoryWithWeights($weights);
+    }
+
+    private function getRandomCategoryWithWeights(array $weights): string
+    {
+        $totalWeight = array_sum($weights);
+        $randomWeight = mt_rand(1, $totalWeight);
+
+        foreach ($weights as $category => $weight) {
+            if ($randomWeight <= $weight) {
+                return $category;
+            }
+            $randomWeight -= $weight;
+        }
+
+        return $this->categories[0]; // fallback
     }
 }
