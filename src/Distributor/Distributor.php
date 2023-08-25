@@ -27,16 +27,22 @@ class Distributor
 
     private function getRandomCategoryBasedOnProportions(): string
     {
-        $weights = [];
-
         $totalItems = array_sum(array_map(fn($cat) => $this->cache->get($cat), $this->categories));
+
+        $underProportionCategories = [];
 
         foreach ($this->categories as $index => $category) {
             $desiredCount = $totalItems * ($this->percentages[$index] / 100);
-            $weights[$category] = $desiredCount - $this->cache->get($category);
+            if ($this->cache->get($category) < $desiredCount) {
+                $underProportionCategories[] = $category;
+            }
         }
 
-        return $this->getRandomCategoryWithWeights($weights);
+        if (count($underProportionCategories) > 0) {
+            return $underProportionCategories[array_rand($underProportionCategories)];
+        }
+
+        return $this->categories[array_rand($this->categories)];  // Escolha qualquer categoria aleatoriamente
     }
 
     private function getRandomCategoryWithWeights(array $weights): string
