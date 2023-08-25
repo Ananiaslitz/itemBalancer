@@ -3,9 +3,10 @@
 namespace Ananiaslitz\ItemBalancer\Cache;
 
 use Ananiaslitz\ItemBalancer\Contracts\CacheInterface;
+use Predis\Client;
 
 class RedisCache implements CacheInterface {
-    private $client;
+    private Client $client;
 
     public function __construct() {
         $this->client = new Client();
