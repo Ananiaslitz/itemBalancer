@@ -4,7 +4,8 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Ananiaslitz\\ItemBalancer\\": "src/"
+            "Ananiaslitz\\ItemBalancer\\": "src/",
+            "Examples\\": "Examples/"
         }
     },
     "authors": [

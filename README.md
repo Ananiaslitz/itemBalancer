@@ -52,3 +52,9 @@ REDIS_PORT=6379
 3. O serviço Redis estará rodando na porta 6379.
 
 Quando estiver usando a biblioteca em seu projeto, lembre-se de configurar o host do Redis para `redis` se estiver usando Docker.
+
+## Aviso sobre Precisão
+Quando se utiliza quantidades menores para a distribuição, a precisão dos resultados pode ser influenciada por fatores estocásticos e pela própria natureza do algoritmo probabilístico. Portanto, é importante ter em mente que, com baixas quantidades, pode não ser possível garantir uma distribuição que reflita exatamente as porcentagens estabelecidas.
+
+No entanto, à medida que a quantidade de itens aumenta, a precisão da distribuição tende a se aproximar das porcentagens especificadas. Recomenda-se realizar testes com volumes significativos de dados para obter uma representação mais precisa das categorias de distribuição.
+

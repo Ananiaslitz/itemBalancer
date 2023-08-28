@@ -5,3 +5,12 @@ services:
     image: redis:latest
     ports:
       - "6379:6379"
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    command: /bin/bash
+    stdin_open: true
+    tty: true
