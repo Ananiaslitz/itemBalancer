@@ -44,19 +44,4 @@ class Distributor
 
         return $this->categories[array_rand($this->categories)];  // Escolha qualquer categoria aleatoriamente
     }
-
-    private function getRandomCategoryWithWeights(array $weights): string
-    {
-        $totalWeight = array_sum($weights);
-        $randomWeight = mt_rand(1, $totalWeight);
-
-        foreach ($weights as $category => $weight) {
-            if ($randomWeight <= $weight) {
-                return $category;
-            }
-            $randomWeight -= $weight;
-        }
-
-        return $this->categories[0]; // fallback
-    }
 }

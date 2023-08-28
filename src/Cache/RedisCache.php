@@ -9,7 +9,14 @@ class RedisCache implements CacheInterface {
     private Client $client;
 
     public function __construct() {
-        $this->client = new Client();
+        $host = getenv('REDIS_HOST') ?: '127.0.0.1';
+        $port = getenv('REDIS_PORT') ?: 6379;
+
+        $this->client = new Client([
+            'scheme' => 'tcp',
+            'host'   => $host,
+            'port'   => $port,
+        ]);
     }
 
     public function get(string $key): int {
