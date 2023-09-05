@@ -53,6 +53,14 @@ REDIS_PORT=6379
 
 Quando estiver usando a biblioteca em seu projeto, lembre-se de configurar o host do Redis para `redis` se estiver usando Docker.
 
+## Contribution
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. We greatly appreciate any contributions you make. Thank you for being a part of our community! 🥰
+
+<a href="https://github.com/ananiaslitz/itemBalancer/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Ananiaslitz/itemBalancer" />
+</a>
+
 ## Aviso sobre Precisão
 Quando se utiliza quantidades menores para a distribuição, a precisão dos resultados pode ser influenciada por fatores estocásticos e pela própria natureza do algoritmo probabilístico. Portanto, é importante ter em mente que, com baixas quantidades, pode não ser possível garantir uma distribuição que reflita exatamente as porcentagens estabelecidas.
 
